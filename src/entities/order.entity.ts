@@ -1,10 +1,11 @@
 import {UserEntity} from "./user.entity";
-import {Prop, Schema as Collection} from "@nestjs/mongoose";
+import {Prop, Schema as Collection, SchemaFactory} from "@nestjs/mongoose";
 import mongoose from "mongoose";
 import {ItemEntity} from "./item.entity";
+import {AbstractEntity} from "../abstract/abstract.entity";
 
 @Collection()
-export class OrderEntity {
+export class OrderEntity extends AbstractEntity {
 
     @Prop({type: mongoose.Schema.Types.ObjectId, ref: 'users'})
     user: UserEntity
@@ -16,3 +17,5 @@ export class OrderEntity {
     public name: string
 
 }
+
+export const OrderSchema = SchemaFactory.createForClass(OrderEntity);
