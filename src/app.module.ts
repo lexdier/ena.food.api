@@ -2,10 +2,12 @@ import {Module} from '@nestjs/common';
 import {AppController} from './app.controller';
 import {AppService} from './app.service';
 import {MongooseModule} from "@nestjs/mongoose";
-import {UserEntity} from "./entities/user.entity";
-import {ItemEntity} from "./entities/item.entity";
-import {ShopEntity} from "./entities/shop.entity";
-import {OrderEntity} from "./entities/order.entity";
+import {UserSchema} from "./entities/user.entity";
+import {ItemSchema} from "./entities/item.entity";
+import {ShopSchema} from "./entities/shop.entity";
+import {OrderSchema} from "./entities/order.entity";
+import {UserRepository} from "./repositories/user.repository";
+import {UserController} from "./controllers/user.controller";
 
 @Module({
     imports: [
@@ -13,14 +15,14 @@ import {OrderEntity} from "./entities/order.entity";
             'mongodb+srv://test:qqsUMu7gUfnDhMFD@enafood.a9omlgi.mongodb.net/'
         ),
         MongooseModule.forFeature([
-            {name: 'users', schema: UserEntity},
-            {name: 'items', schema: ItemEntity},
-            {name: 'shops', schema: ShopEntity},
-            {name: 'orders', schema: OrderEntity}
+            {name: 'users', schema: UserSchema},
+            {name: 'items', schema: ItemSchema},
+            {name: 'shops', schema: ShopSchema},
+            {name: 'orders', schema: OrderSchema}
         ])
     ],
-    controllers: [AppController],
-    providers: [AppService],
+    controllers: [AppController, UserController],
+    providers: [AppService, UserRepository],
 })
 export class AppModule {
 }
