@@ -16,7 +16,6 @@ export class ItemEntity extends AbstractEntity {
     @Prop()
     public quantity: number
 
-
 }
 
 export const ItemSchema = SchemaFactory.createForClass(ItemEntity);
