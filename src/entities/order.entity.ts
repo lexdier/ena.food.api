@@ -1,10 +1,18 @@
 import {UserEntity} from "./user.entity";
+import {Prop, Schema as Collection} from "@nestjs/mongoose";
+import mongoose from "mongoose";
 import {ItemEntity} from "./item.entity";
-import {ShopEntity} from "./shop.entity";
 
+@Collection()
 export class OrderEntity {
 
-    public items: ItemEntity
-    public shop: ShopEntity
+    @Prop({type: mongoose.Schema.Types.ObjectId, ref: 'users'})
+    user: UserEntity
+
+    @Prop({type: [{type: mongoose.Schema.Types.Array, ref: 'items'}]})
+    item: ItemEntity[]
+
+    @Prop()
+    public name: string
 
 }

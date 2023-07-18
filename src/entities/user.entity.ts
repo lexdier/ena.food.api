@@ -1,7 +1,8 @@
-import {OrderEntity} from "./order.entity";
+import {Prop} from "@nestjs/mongoose";
 
 export class UserEntity {
 
-    public orders: OrderEntity[]
+    @Prop()
+    public name: string
 
 }
