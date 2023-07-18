@@ -1,5 +1,4 @@
 import {Prop, Schema as Collection, SchemaFactory} from "@nestjs/mongoose";
-import mongoose from "mongoose";
 
 @Collection()
 export class ShopEntity {
