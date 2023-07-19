@@ -10,6 +10,9 @@ import {UserController} from "./controllers/user.controller";
 import {ProductSchema} from "./entities/product.entity";
 import {OrderController} from "./controllers/order.controller";
 import {OrderRepository} from "./repositories/order.repository";
+import {ProductController} from "./controllers/product.controller";
+import {ProductRepository} from "./repositories/product.repository";
+import {ShopRepository} from "./repositories/shop.repository";
 
 @Module({
     imports: [
@@ -24,8 +27,8 @@ import {OrderRepository} from "./repositories/order.repository";
             {name: 'products', schema: ProductSchema}
         ])
     ],
-    controllers: [UserController, OrderController],
-    providers: [AppService, UserRepository, OrderRepository],
+    controllers: [UserController, OrderController, ProductController],
+    providers: [AppService, UserRepository, OrderRepository, ProductRepository, ShopRepository],
 })
 
 export class AppModule {
