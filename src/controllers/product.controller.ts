@@ -1,5 +1,6 @@
 import {Body, Controller, Get, Inject, Post} from "@nestjs/common";
 import {ProductRepository} from "../repositories/product.repository";
+import {ProductValidator} from "../validators/product.validator";
 
 @Controller('/products')
 export class ProductController {
@@ -13,7 +14,7 @@ export class ProductController {
     }
 
     @Post('/')
-    public new(@Body() validator) {
+    public new(@Body() validator: ProductValidator) {
         return this.$repository.create(validator)
     }
 
