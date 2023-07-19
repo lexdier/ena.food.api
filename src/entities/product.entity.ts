@@ -3,7 +3,7 @@ import {AbstractEntity} from "../abstract/abstract.entity";
 import mongoose from "mongoose";
 import {ShopEntity} from "./shop.entity";
 
-@Collection()
+@Collection({timestamps: true})
 export class ProductEntity extends AbstractEntity {
 
     @Prop({type: mongoose.Schema.Types.ObjectId, ref: 'shops'})
