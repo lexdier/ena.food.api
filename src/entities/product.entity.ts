@@ -12,6 +12,9 @@ export class ProductEntity extends AbstractEntity {
     @Prop()
     public name: string
 
+    @Prop()
+    public available: boolean
+
 }
 
 export const ProductSchema = SchemaFactory.createForClass(ProductEntity);
