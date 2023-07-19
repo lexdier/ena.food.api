@@ -1,10 +1,11 @@
-import {Body, Get, Inject, Post} from "@nestjs/common";
+import {Body, Controller, Get, Inject, Post} from "@nestjs/common";
 import {ShopRepository} from "../repositories/shop.repository";
 import {ShopValidator} from "../validators/shop.validator";
 
+@Controller('/shops')
 export class ShopController {
 
-    @Inject('shops')
+    @Inject()
     protected readonly $repository: ShopRepository;
 
     @Get('/')

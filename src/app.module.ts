@@ -12,6 +12,7 @@ import {OrderController} from "./controllers/order.controller";
 import {OrderRepository} from "./repositories/order.repository";
 import {ProductController} from "./controllers/product.controller";
 import {ProductRepository} from "./repositories/product.repository";
+import {ShopController} from "./controllers/shop.controller";
 import {ShopRepository} from "./repositories/shop.repository";
 
 @Module({
@@ -27,7 +28,7 @@ import {ShopRepository} from "./repositories/shop.repository";
             {name: 'products', schema: ProductSchema}
         ])
     ],
-    controllers: [UserController, OrderController, ProductController],
+    controllers: [UserController, OrderController, ProductController, ShopController],
     providers: [AppService, UserRepository, OrderRepository, ProductRepository, ShopRepository],
 })
 

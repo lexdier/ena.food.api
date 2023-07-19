@@ -9,6 +9,11 @@ export class ShopRepository extends AbstractRepository {
     protected readonly model: Model<ShopEntity>
 
     public create(validator) {
+
+        const shop: ShopEntity = new this.model()
+
+        shop.name = validator.name
+
         return this.model.create(validator)
     }
 
