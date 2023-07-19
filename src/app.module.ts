@@ -1,5 +1,4 @@
 import {Module} from '@nestjs/common';
-import {AppController} from './app.controller';
 import {AppService} from './app.service';
 import {MongooseModule} from "@nestjs/mongoose";
 import {UserSchema} from "./entities/user.entity";
@@ -9,6 +8,8 @@ import {OrderSchema} from "./entities/order.entity";
 import {UserRepository} from "./repositories/user.repository";
 import {UserController} from "./controllers/user.controller";
 import {ProductSchema} from "./entities/product.entity";
+import {OrderController} from "./controllers/order.controller";
+import {OrderRepository} from "./repositories/order.repository";
 
 @Module({
     imports: [
@@ -23,8 +24,9 @@ import {ProductSchema} from "./entities/product.entity";
             {name: 'products', schema: ProductSchema}
         ])
     ],
-    controllers: [AppController, UserController],
-    providers: [AppService, UserRepository],
+    controllers: [UserController, OrderController],
+    providers: [AppService, UserRepository, OrderRepository],
 })
+
 export class AppModule {
 }
