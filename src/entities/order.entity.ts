@@ -11,10 +11,13 @@ export class OrderEntity extends AbstractEntity {
     user: UserEntity
 
     @Prop({type: [{type: mongoose.Schema.Types.Array, ref: 'items'}]})
-    item: ItemEntity[]
+    items: ItemEntity[]
 
     @Prop()
-    public name: string
+    public address: string
+
+    @Prop()
+    public payment: string
 
 }
 

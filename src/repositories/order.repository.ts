@@ -8,11 +8,11 @@ export class OrderRepository extends AbstractRepository {
     @InjectModel('orders')
     protected readonly model: Model<OrderEntity>
 
-    public create(data) {
+    public create(validator) {
 
         const order: OrderEntity = new this.model()
 
-        order.address = data.address
+        order.address = validator.address
 
         return this.model.create(order)
 
