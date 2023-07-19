@@ -17,8 +17,8 @@ export abstract class AbstractRepository {
 
     }
 
-    public update() {
-
+    public update(id) {
+        return this.model.updateOne({_id: id});
     }
 
     public delete(id: string) {
