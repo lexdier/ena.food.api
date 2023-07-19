@@ -1,5 +1,6 @@
 import {Body, Controller, Get, Inject, Post} from "@nestjs/common";
 import {OrderRepository} from "../repositories/order.repository";
+import {OrderValidator} from "../validators/order.validator";
 
 @Controller('/orders')
 export class OrderController {
@@ -13,7 +14,7 @@ export class OrderController {
     }
 
     @Post('/')
-    public new(@Body() data) {
-        return this.$repository.create(data)
+    public new(@Body() validator: OrderValidator) {
+        return this.$repository.create(validator)
     }
 }
