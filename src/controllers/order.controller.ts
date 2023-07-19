@@ -10,7 +10,7 @@ export class OrderController {
 
     @Get('/')
     public orders() {
-        return [2]
+        return this.$repository.find()
     }
 
     @Post('/')
