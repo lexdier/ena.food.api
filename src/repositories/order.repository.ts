@@ -12,7 +12,10 @@ export class OrderRepository extends AbstractRepository {
 
         const order: OrderEntity = new this.model()
 
+        order.user = validator.user
         order.address = validator.address
+        order.payment = validator.payment
+        order.items.push(validator.items)
 
         return this.model.create(order)
 
