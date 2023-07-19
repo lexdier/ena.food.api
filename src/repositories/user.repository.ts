@@ -8,10 +8,10 @@ export class UserRepository extends AbstractRepository {
     @InjectModel('users')
     protected readonly model: Model<UserEntity>
 
-    public create(data) {
+    public create(validator) {
         const user: UserEntity = new this.model()
 
-        user.name = data.name
+        user.name = validator.name
         return this.model.create(user)
     }
 
