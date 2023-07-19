@@ -21,8 +21,8 @@ export abstract class AbstractRepository {
 
     }
 
-    public delete() {
-
+    public delete(id: string) {
+        return this.model.deleteOne({_id: id})
     }
 
 }
