@@ -1,4 +1,5 @@
 import {IsArray, IsMongoId, IsString} from "class-validator";
+import {ItemEntity} from "../entities/item.entity";
 
 export class OrderValidator {
 
@@ -7,7 +8,7 @@ export class OrderValidator {
     user: string
 
     @IsArray()
-    item: string[]
+    items: ItemEntity[]
 
     @IsString()
     address: string[]
