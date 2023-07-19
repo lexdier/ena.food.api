@@ -18,4 +18,9 @@ export class OrderController {
         return this.$repository.create(validator)
     }
 
+    @Delete('/:id')
+    public remove(@Param('id') id: string){
+        return this.$repository.delete(id)
+    }
+
 }
