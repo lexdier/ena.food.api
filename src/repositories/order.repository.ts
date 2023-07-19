@@ -18,7 +18,6 @@ export class OrderRepository extends AbstractRepository {
         order.items.push(validator.items)
 
         return this.model.create(order)
-
     }
 
 }

@@ -1,4 +1,4 @@
-import {Body, Controller, Delete, Get, Inject, Param, Post} from "@nestjs/common";
+import {Body, Controller, Delete, Get, Inject, Param, Post, Put} from "@nestjs/common";
 import {OrderRepository} from "../repositories/order.repository";
 import {OrderValidator} from "../validators/order.validator";
 
@@ -19,8 +19,13 @@ export class OrderController {
     }
 
     @Delete('/:id')
-    public remove(@Param('id') id: string){
+    public remove(@Param('id') id: string) {
         return this.$repository.delete(id)
+    }
+
+    @Put(':id')
+    public update(@Body() validator: OrderValidator, @Param('id') id: string) {
+        return this.$repository.update(id, validator)
     }
 
 }
