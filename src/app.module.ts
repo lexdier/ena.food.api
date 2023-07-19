@@ -14,6 +14,7 @@ import {ProductController} from "./controllers/product.controller";
 import {ProductRepository} from "./repositories/product.repository";
 import {ShopController} from "./controllers/shop.controller";
 import {ShopRepository} from "./repositories/shop.repository";
+import {CartSchema} from "./entities/cart.entity";
 
 @Module({
     imports: [
@@ -25,7 +26,8 @@ import {ShopRepository} from "./repositories/shop.repository";
             {name: 'items', schema: ItemSchema},
             {name: 'shops', schema: ShopSchema},
             {name: 'orders', schema: OrderSchema},
-            {name: 'products', schema: ProductSchema}
+            {name: 'products', schema: ProductSchema},
+            {name: 'carts', schema: CartSchema}
         ])
     ],
     controllers: [UserController, OrderController, ProductController, ShopController],
