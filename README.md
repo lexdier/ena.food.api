@@ -23,8 +23,8 @@
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
 ## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Ao executar o projeto, abra localhost://3000 para ver a documentação do projeto com todos os EndPoints
+disponíveis e seus respectivos parâmetros ou elementos a serem enviados em cada request.
 
 ## Installation
 
