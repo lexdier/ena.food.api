@@ -1,20 +1,20 @@
 import {Body, Controller, Delete, Get, Inject, Param, Post, Put} from "@nestjs/common";
-import {OrderRepository} from "../repositories/order.repository";
-import {OrderValidator, UpdateOrderValidator} from "../validators/order.validator";
+import {CartRepository} from "../repositories/cart.repository";
+import {CartValidator, UpdateCartValidator} from "../validators/cart.validator";
 
-@Controller('/orders')
-export class OrderController {
+@Controller('/carts')
+export class CartController {
 
     @Inject()
-    protected readonly $repository: OrderRepository;
+    protected readonly $repository: CartRepository;
 
     @Get('/')
-    public orders() {
+    public carts() {
         return this.$repository.find()
     }
 
     @Post('/')
-    public new(@Body() validator: OrderValidator) {
+    public new(@Body() validator: CartValidator) {
         return this.$repository.create(validator)
     }
 
@@ -24,7 +24,7 @@ export class OrderController {
     }
 
     @Put(':id')
-    public update(@Body() validator: UpdateOrderValidator, @Param('id') id: string) {
+    public update(@Body() validator: UpdateCartValidator, @Param('id') id: string) {
         return this.$repository.update(id, validator)
     }
 
