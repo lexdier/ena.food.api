@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Inject, Param, Post, Put} from "@nestjs/common";
+import {Body, Controller, Delete, Get, Inject, Param, Post, Put} from "@nestjs/common";
 import {UserRepository} from "../repositories/user.repository";
 import {UpdateUserValidator, UserValidator} from "../validators/user.validator";
 
@@ -16,6 +16,11 @@ export class UserController {
     @Post('/')
     public new(@Body() validator: UserValidator) {
         return this.$repository.create(validator)
+    }
+
+    @Delete('/:id')
+    public remove(@Param('id') id: string) {
+        return this.$repository.delete(id)
     }
 
     @Put('/:id')

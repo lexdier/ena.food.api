@@ -6,7 +6,7 @@ import {CartEntity} from "./cart.entity";
 @Collection()
 export class OrderEntity extends AbstractEntity {
 
-    @Prop({type: [{type: mongoose.Schema.Types.ObjectId, ref: 'carts'}]})
+    @Prop({type: mongoose.Schema.Types.ObjectId, ref: 'carts'})
     cart: CartEntity | string
 
     @Prop()
