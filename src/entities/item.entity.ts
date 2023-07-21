@@ -1,15 +1,15 @@
 import {Prop, Schema as Collection, SchemaFactory} from "@nestjs/mongoose";
-import mongoose from "mongoose";
+import {Schema} from "mongoose";
 import {AbstractEntity} from "../abstract/abstract.entity";
 import {ProductEntity} from "./product.entity";
 
 @Collection({timestamps: true})
 export class ItemEntity extends AbstractEntity {
 
-    @Prop({type: mongoose.Schema.Types.ObjectId, ref: 'products'})
+    @Prop({type: Schema.Types.ObjectId, ref: 'products'})
     public product: ProductEntity
 
-    @Prop()
+    @Prop({type: Schema.Types.Number})
     public quantity: number
 
 }
