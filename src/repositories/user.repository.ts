@@ -13,6 +13,8 @@ export class UserRepository extends AbstractRepository {
         const user: UserEntity = new this.model()
 
         user.name = validator.name
+        user.address = validator.address
+
         return this.model.create(user)
     }
 
