@@ -5,4 +5,7 @@ export class UserValidator {
     @IsString()
     name: string
 
+    @IsString()
+    address: string
+
 }

@@ -8,6 +8,9 @@ export class UserEntity extends AbstractEntity {
     @Prop({type: Schema.Types.String})
     public name: string
 
+    @Prop({type: Schema.Types.String})
+    public address: string
+
 }
 
 export const UserSchema = SchemaFactory.createForClass(UserEntity);
