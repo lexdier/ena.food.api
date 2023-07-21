@@ -1,13 +1,9 @@
-import {IsArray, IsMongoId, IsOptional, IsString} from "class-validator";
-import {ItemEntity} from "../entities/item.entity";
+import {IsMongoId, IsOptional, IsString} from "class-validator";
 
 export class OrderValidator {
 
     @IsMongoId()
-    user: string
-
-    @IsArray()
-    items: ItemEntity[]
+    cart: string
 
     @IsString()
     address: string
@@ -21,11 +17,7 @@ export class UpdateOrderValidator {
 
     @IsOptional()
     @IsMongoId()
-    user: string
-
-    @IsOptional()
-    @IsArray()
-    items: ItemEntity[]
+    cart: string
 
     @IsOptional()
     @IsString()
