@@ -14,8 +14,7 @@ export class CartRepository extends AbstractRepository {
         const cart: CartEntity = new this.model()
 
         cart.items = validator.items
-        cart.user = validator.user as any
-        cart.shop = validator.shop as any
+        cart.user = validator.user
 
         return this.model.create(cart)
 
@@ -24,9 +23,9 @@ export class CartRepository extends AbstractRepository {
     public async update(id: string, validator: UpdateCartValidator) {
         const cart: CartEntity = await this.model.findById(id)
 
-        cart.items = validator.items as any
-        cart.user = validator.user as any
-        cart.shop = validator.shop as any
+        // @ts-ignore
+        cart.items = validator.items
+        cart.user = validator.user
 
         return cart.save()
 

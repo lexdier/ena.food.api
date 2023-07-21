@@ -1,5 +1,7 @@
 import {IsArray, IsMongoId, IsOptional} from "class-validator";
 import {ItemEntity} from "../entities/item.entity";
+import {ItemValidator} from "./item.validator";
+import {Type} from "class-transformer";
 
 export class CartValidator {
 
@@ -9,22 +11,17 @@ export class CartValidator {
     @IsMongoId()
     user: string
 
-    @IsMongoId()
-    shop: string
 }
 
 export class UpdateCartValidator {
 
     @IsOptional()
     @IsArray()
-    items: string[]
+    @Type(() => ItemValidator)
+    items: ItemValidator[]
 
     @IsOptional()
     @IsMongoId()
     user: string
-
-    @IsOptional()
-    @IsMongoId()
-    shop: string
 
 }
