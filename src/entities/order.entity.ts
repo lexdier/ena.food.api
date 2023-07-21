@@ -1,4 +1,3 @@
-import {UserEntity} from "./user.entity";
 import {Prop, Schema as Collection, SchemaFactory} from "@nestjs/mongoose";
 import mongoose from "mongoose";
 import {AbstractEntity} from "../abstract/abstract.entity";
