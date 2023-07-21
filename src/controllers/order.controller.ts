@@ -13,6 +13,11 @@ export class OrderController {
         return this.$repository.find()
     }
 
+    @Get('/:id')
+    public findById(@Param('id') id: string) {
+        return this.$repository.read(id)
+    }
+
     @Post('/')
     public new(@Body() validator: OrderValidator) {
         return this.$repository.create(validator)
