@@ -15,6 +15,8 @@ import {ProductRepository} from "./repositories/product.repository";
 import {ShopController} from "./controllers/shop.controller";
 import {ShopRepository} from "./repositories/shop.repository";
 import {CartSchema} from "./entities/cart.entity";
+import {CartController} from "./controllers/cart.controller";
+import {CartRepository} from "./repositories/cart.repository";
 
 @Module({
     imports: [
@@ -30,8 +32,8 @@ import {CartSchema} from "./entities/cart.entity";
             {name: 'carts', schema: CartSchema}
         ])
     ],
-    controllers: [UserController, OrderController, ProductController, ShopController],
-    providers: [AppService, UserRepository, OrderRepository, ProductRepository, ShopRepository],
+    controllers: [UserController, OrderController, ProductController, ShopController, CartController],
+    providers: [AppService, UserRepository, OrderRepository, ProductRepository, ShopRepository, CartRepository],
 })
 
 export class AppModule {
