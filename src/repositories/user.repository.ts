@@ -2,7 +2,7 @@ import {AbstractRepository} from "../abstract/abstract.repository";
 import {InjectModel} from "@nestjs/mongoose";
 import {Model} from "mongoose";
 import {UserEntity} from "../entities/user.entity";
-import {UserValidator} from "../validators/user.validator";
+import {UpdateUserValidator} from "../validators/user.validator";
 
 export class UserRepository extends AbstractRepository {
 
@@ -16,7 +16,7 @@ export class UserRepository extends AbstractRepository {
         return this.model.create(user)
     }
 
-    public async update(id: string, validator: UserValidator) {
+    public async update(id: string, validator: UpdateUserValidator) {
 
         const user: UserEntity = await this.model.findById(id)
 
