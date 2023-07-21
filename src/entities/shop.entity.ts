@@ -7,6 +7,9 @@ export class ShopEntity extends AbstractEntity {
     @Prop()
     public name: string
 
+    @Prop()
+    public address: string
+
 }
 
 export const ShopSchema = SchemaFactory.createForClass(ShopEntity);
