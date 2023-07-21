@@ -13,7 +13,8 @@ export abstract class AbstractRepository {
 
     public abstract create(validator: any)
 
-    public read() {
+    public read(id: string) {
+        return this.model.findById(id)
     }
 
     public abstract update(id, validator)
