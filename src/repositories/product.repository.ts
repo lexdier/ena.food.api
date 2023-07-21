@@ -2,7 +2,7 @@ import {AbstractRepository} from "../abstract/abstract.repository";
 import {InjectModel} from "@nestjs/mongoose";
 import {Model} from "mongoose";
 import {ProductEntity} from "../entities/product.entity";
-import {ProductValidator} from "../validators/product.validator";
+import {UpdateProductValidator} from "../validators/product.validator";
 
 export class ProductRepository extends AbstractRepository {
 
@@ -19,7 +19,7 @@ export class ProductRepository extends AbstractRepository {
         return this.model.create(product)
     }
 
-    public async update(id: string, validator: ProductValidator) {
+    public async update(id: string, validator: UpdateProductValidator) {
 
         const product: ProductEntity = await this.model.findById(id)
 

@@ -1,6 +1,6 @@
 import {Body, Controller, Get, Inject, Param, Post, Put} from "@nestjs/common";
 import {ProductRepository} from "../repositories/product.repository";
-import {ProductValidator} from "../validators/product.validator";
+import {ProductValidator, UpdateProductValidator} from "../validators/product.validator";
 
 @Controller('/products')
 export class ProductController {
@@ -19,7 +19,7 @@ export class ProductController {
     }
 
     @Put('/:id')
-    public update(@Body() validator: ProductValidator, @Param('id') id: string) {
+    public update(@Body() validator: UpdateProductValidator, @Param('id') id: string) {
         return this.$repository.update(id, validator)
     }
 
